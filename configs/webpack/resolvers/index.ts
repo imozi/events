@@ -1,0 +1,1 @@
+export { resolversConfig } from './resolversConfig';

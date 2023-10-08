@@ -1,0 +1,44 @@
+html {
+  box-sizing: border-box;
+  font-size: var(--font-base);
+}
+
+body {
+  box-sizing: inherit;
+  background-color: var(--background-body);
+  color: var(--font-color);
+  font-family: var(--font-family);
+  font-size: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  padding: 4rem 2rem;
+  margin: 0 auto;
+}
