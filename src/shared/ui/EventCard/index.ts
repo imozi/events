@@ -1,1 +1,1 @@
-// Card
+export { EventCard } from './ui/EventCard';

@@ -3,11 +3,12 @@ export type Event = {
   title: string;
   description: string;
   image: string;
+  type: string;
   dates: EventDate[];
 };
 
 export type EventDate = {
-  datetimeFrom: string;
+  datetimeFrom: string | null;
   datetimeTo: string | null;
 };
 
