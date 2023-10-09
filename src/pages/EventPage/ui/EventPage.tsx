@@ -12,10 +12,6 @@ const EventPage = () => {
 
   useDocumentTitle(data ? data.title : 'Загрузка');
 
-  if (data) {
-    console.log(data);
-  }
-
   return isLoading ? (
     <Loader />
   ) : (
@@ -52,9 +48,13 @@ const EventPage = () => {
           <div className={cls.event__dates}>
             <p>Дата и время проведения</p>
             <ul className={cls['event__dates-list']}>
-              <li>
-                <DateTimeCard />
-              </li>
+              {data &&
+                data.dates.map((date, i) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <li key={i}>
+                    <DateTimeCard date={date} />
+                  </li>
+                ))}
             </ul>
           </div>
         </section>

@@ -1,5 +1,6 @@
 export type DateFormat = {
   day: string;
+  dayWeek: string;
   month: string;
   year: string;
   hours: string;
@@ -7,7 +8,7 @@ export type DateFormat = {
   fullDate: string;
 };
 
-const monthNumberToRussianWord = (monthNumber: number): string => {
+const monthNumberToWord = (monthNumber: number): string => {
   switch (monthNumber) {
     case 1:
       return 'января';
@@ -38,17 +39,40 @@ const monthNumberToRussianWord = (monthNumber: number): string => {
   }
 };
 
+const dayNumberToWords = (dayNumber: number): string => {
+  switch (dayNumber) {
+    case 1:
+      return 'Понедельник';
+    case 2:
+      return 'Вторник';
+    case 3:
+      return 'Среда';
+    case 4:
+      return 'Четверг';
+    case 5:
+      return 'Пятница';
+    case 6:
+      return 'Суббота';
+    case 7:
+      return 'Воскресенье';
+    default:
+      throw new Error('Номер дня должен быть от 1 до 7');
+  }
+};
+
 export const formatISODateToReadable = (dateString: string): DateFormat => {
   const date = new Date(dateString);
   const year = date.getFullYear().toString();
-  const month = monthNumberToRussianWord(date.getMonth() + 1);
+  const month = monthNumberToWord(date.getMonth() + 1);
   const day = String(date.getUTCDate());
+  const dayWeek = dayNumberToWords(date.getDay() + 1);
   const hours = String(date.getUTCHours()).padStart(2, '0');
   const minutes = String(date.getUTCMinutes()).padStart(2, '0');
   const fullDate = `${day}/${month}/${year}`;
 
   return {
     day,
+    dayWeek,
     month,
     year,
     hours,

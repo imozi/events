@@ -4,7 +4,7 @@ export type Event = {
   id: string;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   type: string;
   dates: EventDate[];
 };
