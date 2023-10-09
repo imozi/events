@@ -5,7 +5,7 @@ import { type ITransformDateEvent, type ITransformDateEvents } from '../model/ui
 
 export const eventAPI = createApi({
   reducerPath: 'eventAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
+  baseQuery: fetchBaseQuery({ baseUrl: `http://localhost:${__BACKEND_PORT__}` }),
   tagTypes: ['Events'],
   endpoints: (builder) => ({
     fetchAllEvents: builder.query<ITransformDateEvents, void>({

@@ -1,7 +1,12 @@
 import path from 'path';
 import { create, router, defaults, bodyParser } from 'json-server';
+import dotenv from 'dotenv';
 
-const SERVER_PORT = 3001;
+dotenv.config();
+
+const isDEV = JSON.parse(process.env.IS_DEV as string);
+
+const SERVER_PORT = isDEV ? process.env.BACKEND_PORT_DEV : process.env.BACKEND_PORT_PROD;
 
 const server = create();
 const routes = router(path.resolve(__dirname, 'db.json'));

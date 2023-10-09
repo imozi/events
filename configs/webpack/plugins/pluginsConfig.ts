@@ -7,7 +7,10 @@ import {
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import dotenv from 'dotenv';
 import { type WebpackConfigOptions } from '../types';
+
+dotenv.config();
 
 export const pluginsConfig = ({ paths, isDev }: WebpackConfigOptions): WebpackPluginInstance[] => {
   const plugins = [
@@ -22,6 +25,8 @@ export const pluginsConfig = ({ paths, isDev }: WebpackConfigOptions): WebpackPl
     new ProgressPlugin(),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __FRONTEND_PORT__: isDev ? process.env.FRONTEND_PORT_DEV : process.env.FRONTEND_PORT_PROD,
+      __BACKEND_PORT__: isDev ? process.env.BACKEND_PORT_DEV : process.env.BACKEND_PORT_PROD,
     }),
   ];
 

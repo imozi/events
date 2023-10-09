@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+    events:
+      container_name: events
+      image: 'events_test'
+      build: 
+        context: .
+        dockerfile: Dockerfile
+        args:
+        - NODE_VERSION=18
+        - FRONTEND_PORT=${FRONTEND_PORT_PROD}
+        - BACKEND_PORT=${BACKEND_PORT_PROD}
+      restart: always
+      ports: 
+          - 127.0.0.1:${FRONTEND_PORT_PROD}:${FRONTEND_PORT_PROD}
+          - 127.0.0.1:${BACKEND_PORT_PROD}:${BACKEND_PORT_PROD}
