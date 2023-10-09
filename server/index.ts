@@ -12,7 +12,7 @@ server.use(bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
   await new Promise((respone) => {
-    setTimeout(respone, 3000);
+    setTimeout(respone, 800);
   });
   next();
 });
