@@ -1,8 +1,13 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const isDEV = JSON.parse(process.env.IS_DEV as string);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = isDEV ? process.env.FRONTEND_PORT_DEV : process.env.FRONTEND_PORT_PROD;
 
 app.use(express.static(path.join(__dirname, '../build')));
 

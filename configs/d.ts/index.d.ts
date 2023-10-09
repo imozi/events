@@ -15,3 +15,7 @@ declare module '*.svg' {
 }
 
 declare const __IS_DEV__: boolean;
+
+declare const __FRONTEND_PORT__: number;
+
+declare const __BACKEND_PORT__: number;
