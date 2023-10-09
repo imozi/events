@@ -19,7 +19,6 @@ server.use(async (req, res, next) => {
 
 server.use(routes);
 
-// запуск сервера
 server.listen(SERVER_PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${SERVER_PORT} port`);
+  console.log(`🚀 Backend is running on http://localhost:${SERVER_PORT}`);
 });
