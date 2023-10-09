@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { EventCard } from './EventCard';
-import { Event } from '@/shared/api/eventAPI/model';
+import { ITransformDateEvent } from '@/shared/api/eventAPI/model/ui/Event';
 
 describe('Event Card', () => {
-  const event: Event = {
+  const event: ITransformDateEvent = {
     id: '1',
     title: 'Test card render',
     description: 'Test desctiption',
@@ -12,8 +12,9 @@ describe('Event Card', () => {
     type: '',
     dates: [
       {
-        datetimeFrom: 'null',
-        datetimeTo: 'null',
+        from: null,
+        to: null,
+        times: [],
       },
     ],
   };

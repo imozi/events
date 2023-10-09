@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import cls from './EventCard.module.scss';
-import { Event } from '@/shared/api/eventAPI/model';
+import { ITransformDateEvent } from '@/shared/api/eventAPI/model/ui/Event';
 
 type EventCardProps = {
-  event: Event;
+  event: ITransformDateEvent;
 };
 
 export const EventCard: FC<EventCardProps> = ({ event }) => (
@@ -17,7 +17,7 @@ export const EventCard: FC<EventCardProps> = ({ event }) => (
             <p>{event.type}</p>
           </header>
           <footer className={cls.event__footer}>
-            <p>с 6 по 8 ноября</p>
+            {event.dates && <p>{event.dates[0].from?.day}</p>}
           </footer>
         </div>
 

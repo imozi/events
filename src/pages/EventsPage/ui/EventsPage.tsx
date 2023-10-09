@@ -3,16 +3,19 @@ import { eventAPI } from '@/shared/api/eventAPI';
 import { EventCard } from '@/shared/ui';
 import IconBack from '@/shared/assets/icons/icon-back-page.svg';
 import cls from './EventsPage.module.scss';
+import { useDocumentTitle } from '@/shared/lib/hooks/useDocumentTitle';
 
 const EventsPage = () => {
-  const { data, isLoading, error } = eventAPI.useFetchAllEventsQuery();
+  const { data } = eventAPI.useFetchAllEventsQuery();
+
+  useDocumentTitle('Список мероприятий');
 
   return (
     <>
       <header className={cls.header}>
-        <nav className={cls.navigation}>
+        <nav className="navigation">
           <ul className={cls.navigation__list}>
-            <li className={cls.navigation__item}>
+            <li className="navigation__item">
               <Link to="/">
                 <span className="visually-hidden">Венуться назад</span>
                 <IconBack />
@@ -25,8 +28,6 @@ const EventsPage = () => {
         <h1>Мероприятия</h1>
         <section className={cls.events}>
           <h2>Список запланированных мероприятий</h2>
-          {/* {isLoading && <p>Загрузка данных</p>}
-          {error && <p>Произошла ошибка при загрузке</p>} */}
           {data && (
             <ul className={cls.events__list}>
               {data.map((event) => (
