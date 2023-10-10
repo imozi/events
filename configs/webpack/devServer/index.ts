@@ -1,0 +1,1 @@
+export { devServerConfig } from './devServerConfig';

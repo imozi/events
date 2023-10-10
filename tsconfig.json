@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,    
+    "noImplicitAny": true,          
+    "module": "ESNext", 
+    "target": "ESNext", 
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node", 
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,     
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+    }, 
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
