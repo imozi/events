@@ -1,20 +1,23 @@
 import { Link, useParams } from 'react-router-dom';
 import IconBack from '@/shared/assets/icons/icon-back-page.svg';
-import { eventAPI } from '@/shared/api/eventAPI';
+import { useFetchEventByIdQuery } from '@/shared/api/eventAPI';
 import cls from './EventPage.module.scss';
 import { Loader } from '@/shared/ui';
 import { useDocumentTitle } from '@/shared/lib/hooks/useDocumentTitle';
 import { DateTimeCard } from '@/shared/ui/DateTimeCard';
+import { Error } from '@/shared/ui/Error/ui/Error';
 
 const EventPage = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading } = eventAPI.useFetchEventByIdQuery(id as string);
+  const { data, isLoading, error } = useFetchEventByIdQuery(id as string);
 
   useDocumentTitle(data ? data.title : 'Загрузка');
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  if (isLoading) return <Loader />;
+
+  if (error) return <Error message={`Мероприятия с id ${id} не найдено!`} />;
+
+  return (
     <>
       <header className={cls.header}>
         <nav className="navigation">

@@ -1,1 +1,1 @@
-export { eventAPI } from './ui/eventAPI';
+export { eventAPI, useFetchAllEventsQuery, useFetchEventByIdQuery } from './ui/eventAPI';

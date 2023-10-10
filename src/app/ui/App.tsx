@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import { Router } from '../providers/Router';
 import '../styles/style.scss';
-import { eventAPI } from '@/shared/api/eventAPI';
+import { useFetchAllEventsQuery } from '@/shared/api/eventAPI';
 import { Loader } from '@/shared/ui';
 
 const App = () => {
-  const { isLoading } = eventAPI.useFetchAllEventsQuery();
+  const { isLoading } = useFetchAllEventsQuery();
 
   return isLoading ? (
     <Loader />

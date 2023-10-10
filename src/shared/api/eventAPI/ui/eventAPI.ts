@@ -4,9 +4,10 @@ import { FormatDate } from '@/shared/lib/utils/formatDate';
 import { type ITransformDateEvent, type ITransformDateEvents } from '../model/ui/Event';
 
 export const eventAPI = createApi({
-  reducerPath: 'eventAPI',
+  reducerPath: 'api/events',
   baseQuery: fetchBaseQuery({ baseUrl: `http://localhost:${__BACKEND_PORT__}` }),
   tagTypes: ['Events'],
+  keepUnusedDataFor: 120,
   endpoints: (builder) => ({
     fetchAllEvents: builder.query<ITransformDateEvents, void>({
       query: () => ({
@@ -34,3 +35,5 @@ export const eventAPI = createApi({
     }),
   }),
 });
+
+export const { useFetchAllEventsQuery, useFetchEventByIdQuery } = eventAPI;
