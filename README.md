@@ -7,6 +7,8 @@
 
 ## Технологии
 
+- Архитектурный подход - [FSD](https://feature-sliced.design/ru/docs/get-started/overview)
+- 
 - Сборщик проекта - [Webpack](https://webpack.js.org/)
 
 - ЯП TypeScript - [TS](https://www.typescriptlang.org/)
